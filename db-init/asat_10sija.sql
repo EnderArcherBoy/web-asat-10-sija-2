@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 19, 2025 at 04:55 AM
+-- Generation Time: Nov 19, 2025 at 03:31 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.26
 
@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `biodata`
 --
+
+CREATE DATABASE IF NOT EXIST asat_10sija;
+USE asat_10sija;
 
 CREATE TABLE `biodata` (
   `id` int NOT NULL,

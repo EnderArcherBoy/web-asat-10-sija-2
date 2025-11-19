@@ -1,0 +1,41 @@
+services:
+  web:
+    image: enderarch/test-asas:latest
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 3
+    networks:
+      - sijanet
+    volumes:
+      - webdata:/var/www/html/upload
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: asat_10sija
+    volumes:
+      - dbdata:/var/lib/mysql
+      - /home/coba-ujian/web-asat-10-sija-2/db-init:/docker-entrypoint-initdb.d
+    networks:
+      - sijanet
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root123
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - sijanet
+volumes:
+  dbdata:
+  webdata:
+networks:
+  sijanet:
+    driver: overlay
