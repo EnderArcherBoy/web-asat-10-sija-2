@@ -118,7 +118,10 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
               </div><!-- End Info Item -->
 
-              <iframe src=<?php echo htmlspecialchars($row['peta']); ?>></iframe>
+              <!-- embed google maps -->
+              <iframe src="
+                https://www.google.com/maps?q=<?php echo htmlspecialchars($row['peta']); ?>&output=embed
+              " frameborder=0 width=100% height=270px style=border:0; allowfullscreen= loading=lazy referrerpolicy=no-referrer-when-downgrade></iframe>
             </div>
           </div>
 
